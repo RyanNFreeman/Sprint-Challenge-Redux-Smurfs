@@ -1,17 +1,33 @@
 import React from 'react';
 
 
- const SmurfsList = props => {
+const style = {
+    width: '500px',
+    
+}
 
+const flex = {
+    display: 'flex',
+  justifyContent: 'center',
+  flexWrap: 'wrap'
+}
 
-     console.log(props.smurfs.id, 'sl')
+const box = {
+    width: '40%',
+    border: '1px solid black',
+    margin: '5px',
+    background: 'lightBlue',
+    borderRadius: '8px'
+}
+
+const SmurfsList = props => {
     return (
-        <div>
-            <div>
+        <div style={style}>
+            <div style={flex}>
             {props.smurfs.map(smurf => 
-            <div key={smurf.id}>
+            <div key={smurf.id}  style={box}>
                 <p>Name: {smurf.name}</p>
-                <p>Age:{smurf.age}</p>
+                <p>Age: {smurf.age}</p>
                 <p>Height: {smurf.height}</p>
             </div>)}
             </div>

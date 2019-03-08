@@ -46,6 +46,18 @@ import {FETCH_START,
         ...state,
         isLoading: true
       }
+    case CREATE_SMURF_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        fetchingSmurfs: false
+      }
+    case CREATE_SMURF_FAIL:
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        err: action.payload
+      }
     default:
       return state
    }

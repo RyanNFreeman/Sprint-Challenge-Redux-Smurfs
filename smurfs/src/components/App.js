@@ -10,6 +10,13 @@ import SmurfsList from './SmurfsList';
  Just remember, `how do I `connect` my components to redux?`
  `How do I ensure that my component links the state to props?`
  */
+
+const style = {
+  display: 'flex',
+  justifyContent: 'center',
+  flexWrap: 'wrap'
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -23,10 +30,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your Redux version of Smurfs!</div>
+        <div>Welcome to my Redux version of Smurfs!</div>
         <h1>These are your current smurfs, be gentle with them:</h1>
+        <div style={style}>
         <SmurfsList smurfs = {this.props.smurfs} />
-
+        </div>
         <h1>Are you ready to bring home another smurf?</h1>
         <h4>Add a smurf to my family:</h4>
 
