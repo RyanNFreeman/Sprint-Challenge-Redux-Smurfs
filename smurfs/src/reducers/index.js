@@ -1,7 +1,12 @@
 /*
   Be sure to import in all of the action types from `../actions`
 */
-import * as actionTypes from '../actions'
+import {FETCH_START, 
+  FETCH_SUCCESS, 
+  FETCH_FAIL,
+  CREATE_SMURF_START,
+  CREATE_SMURF_SUCCESS,
+  CREATE_SMURF_FAIL} from '../actions'
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
@@ -13,11 +18,34 @@ import * as actionTypes from '../actions'
    addingSmurf: false,
    updatingSmurf: false,
    deletingSmurf: false,
-   error: null
+   error: null,
+   isLoading: false
  }
 
  const rootReducer = (state = initialState, action) => {
+   console.log('this is the reducer')
    switch (action.type) {
+    case FETCH_START:
+      return {
+        ...state, fetchingSmurfs: true
+      }
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        fetchingSmurfs: false
+      }
+    case FETCH_FAIL:
+      return {
+        ...state,
+        fetchingSmurfs: false,
+        err: action.payload
+      }
+    case CREATE_SMURF_START:
+      return {
+        ...state,
+        isLoading: true
+      }
     default:
       return state
    }

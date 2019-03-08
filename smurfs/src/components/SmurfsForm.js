@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { createSmurf } from '../actions'
+import { creatingSmurf } from '../actions'
 
 class SmurfsForm extends React.Component {
 
@@ -14,9 +14,9 @@ class SmurfsForm extends React.Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    submitSmurf() {
-        const { name, age, height } = this.state;
-        this.props.createSmurf
+    submitSmurf = e => {
+        e.preventDefault();
+
     }
 
     render() {
@@ -55,4 +55,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { createSmurf })(SmurfsForm)
+export default connect(mapStateToProps, { creatingSmurf })(SmurfsForm)
